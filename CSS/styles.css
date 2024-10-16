@@ -1,4 +1,222 @@
-body {
+/*body {
     background-color: #999;
-    
+}*/
+
+/* importando a fonte Poppins do google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* coloca todas as cores aqui, assim posso editar direto em um lugar so*/
+:root {
+    --main-color: #00eeff;
+    --text-color: #ffffff;
+    --bg-color-01: #1f242d;
+    --bg-color-02: #323946;
+    --color-00: #0000001a;
+
+    /*extra*/
+    --color-01: #999999;
+    --color-02: #009539;
+    --color-03: #7950f2;
+    --color-04: #c00000;
+    --color-05: #232323;
 }
+
+/* zerando as configuracoes originais do navegador*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+/* 16px e o valor base/referencia das fontes */
+/* quando usar "rem" nas outras coisas o 1 vai ser o 16px*/
+html {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-color-01);
+    color: var(--text-color);
+}
+
+/* barra fixa*/
+/* fixa no topo, ocupando a largura toda */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.1rem;
+    background-color: var(--bg-color-01);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border: solid 1px var(--color-02);
+}
+
+
+
+/* eu cologo o . pq essa classe foi eu que inventei*/
+/* o header, body, html, ja sao padrao*/
+.logo {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
+}
+
+/*padding vertical 0.5/horizontal 1*/
+.nav a {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    transition: 0.4s;
+    border: solid 1px var(--color-02);
+}
+
+.nav a:hover {
+    color: var(--main-color);
+}
+
+/* padding cima 6/ lado 6/ baixo 2/ (no outro lado ele vai copiar o 6)*/
+section {
+    min-height: 100vh;
+    padding: 6rem 6rem 2rem;
+    border: solid 1px var(--color-02);
+}
+
+/* muda a cor de tudo que eu coloquei como span no html*/
+span {
+    color: var(--main-color);
+}
+
+/* configuracoes das classes inicio e sobre */
+.inicio, .sobre  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* configuracoes das classes inicio-img e sobre-img */
+/* a imagem vai ocupar % do container e o container 100% do tamanho da pagina*/
+.inicio-img img, .sobre-img img{
+    width: 100%;
+}
+
+/* configuracoes das classes inicio-content e sobre-content */
+/* o texto ocupa % do container */
+.inicio-content, .sobre-content{
+    width: 45%;
+}
+
+/* fonts h1 do inicio*/
+.inicio-content h1, .sobre-content h1 {
+    font-weight: 700;
+    line-height: 1.3;
+    font-size: 2.7rem; /*test*/
+}
+
+/* fontes h3 do inicio*/
+.inicio-content h3, .sobre-content h3 {
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+/* caixa texto inicio */
+.inicio-content p, .sobre-content p {
+    margin-top: 1.2rem;
+    text-align: justify;
+}
+
+/* configuracoes dos titulos*/
+.habilidades h2,
+.portfolio h2,
+.contato h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* propriedades gerais*/
+.habilidades-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* propriedades das caixas BOX */
+.habilidades-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 25rem;
+    margin-bottom: 1rem;
+}
+
+/* propriedades comuns a todos */
+.habilidades-container, .habilidades-box {
+    padding: 2rem 1rem 2.5rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    border: solid 0.15rem var(--bg-color-01);
+    background-color: var(--bg-color-02);
+    transition: 0.5s ease;
+}
+
+/* propriedades comuns do hover */
+.habilidades-container, .habilidades-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+/* propriedades dos icones*/
+.habilidades-box i {
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+
+/* propriedade do h3 titulo */
+.habilidades-box h3 {
+    font-size: 1.5rem;
+}
+
+/* propriedades paragrafo */
+.habilidades-box p {
+    margin: 0.5rem;
+    letter-spacing: 0.1rem;
+    /* n linhas ... */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
