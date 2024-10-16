@@ -58,9 +58,37 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    border: solid 1px var(--color-02);
+    /*border: solid 1px var(--color-02); /* test */
 }
 
+
+/* menu hamburguer */
+.menu-hamburguer {
+    display: none;
+    cursor: pointer;
+}
+
+/* barrinhas do burguer menu */
+.bar1, .bar2, .bar3 {
+    width: 2rem;
+    height: 0.3rem;
+    background-color: var(--text-color);
+    margin: 0.4rem 0;
+    transition: 0.3s ease;
+}
+
+/* movimento das barras p formar o X */
+.change .bar1 {
+    transform: translate(0, 0.65rem) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -0.65rem) rotate(45deg);
+}
 
 
 /* eu cologo o . pq essa classe foi eu que inventei*/
@@ -72,16 +100,27 @@ header {
     cursor: default;
 }
 
+/* barra responsiva */
+.nav-responsive {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--bg-color-01);    
+}
+
 /*padding vertical 0.5/horizontal 1*/
-.nav a {
+.nav a, .nav-responsive a {
     font-size: 1.2rem;
     color: var(--text-color);
     padding: 0.5rem 1rem;
     transition: 0.4s;
-    border: solid 1px var(--color-02);
+    /* border: solid 1px var(--color-02); /* test */
 }
 
-.nav a:hover {
+.nav a:hover, .nav-responsive a:hover {
     color: var(--main-color);
 }
 
@@ -89,7 +128,7 @@ header {
 section {
     min-height: 100vh;
     padding: 6rem 6rem 2rem;
-    border: solid 1px var(--color-02);
+    /* border: solid 1px var(--color-02); /*test*/
 }
 
 /* muda a cor de tudo que eu coloquei como span no html*/
@@ -98,7 +137,7 @@ span {
 }
 
 /* configuracoes das classes inicio e sobre */
-.inicio, .sobre  {
+.inicio, .sobre {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -136,6 +175,36 @@ span {
     text-align: justify;
 }
 
+
+/* redes sociais */
+.social-media img {
+    width: 3.3rem;
+}
+
+/* icones das redes sociais */
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: solid 0.15rem var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 1.8rem 0.5rem;
+    transition: 0.5s ease;
+}
+
+/* hover icones redes sociais */
+.social-media a:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color-02);
+    box-shadow: 0 0 0.3rem var(--main-color);
+}
+
+
 /* configuracoes dos titulos*/
 .habilidades h2,
 .portfolio h2,
@@ -166,7 +235,10 @@ span {
     padding: 2rem 1rem 2.5rem;
     border-radius: 1.2rem;
     text-align: center;
-    border: solid 0.15rem var(--bg-color-01);
+    border: solid 0.15rem var(--bg-color-01); /*test*/
+}
+
+.habilidades-box {
     background-color: var(--bg-color-02);
     transition: 0.5s ease;
 }
@@ -198,21 +270,303 @@ span {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
 
+/* secao do portfolio*/
+.portfolio-container {
+    display: grid;
+    gap: 1.2rem;
+}
+
+/* caixas projetos */
+.portfolio-box {
+    position: relative;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 0.6rem var(--bg-color-01);
+    overflow: hidden;
+    display: flex;
+}
+
+/* imagens */
+.portfolio-box img {
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+/* ZOOM quando hover na imagem*/
+.portfolio-box img:hover {
+    transform: scale(1.1);
+}
+
+/* caixa imagens e o texto */
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, var(--color-03));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(30rem);
+    transition: 0.5s ease;
+}
+
+/* texto imagens e hover */
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+/* titulo texto foto */
+.portfolio-layer h4 {
+    font-size: 1.8rem;
+}
+
+/* titulo paragrafo foto */
+.portfolio-layer p {
+    margin: 0.2rem 0 0.5rem;
+}
+
+/* bolinha do link externo */
+.portfolio-layer a {
+    display: inline-flex;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: var(--text-color);
+    border-radius: 50%;
+}
+
+/* icone link externo */
+.portfolio-layer a i {
+    font-size: 1.2rem;
+    color: var(--bg-color-02);
+}
+
+
+/*formulario */
+form {
+    max-width: 45rem;
+    margin: 0.6rem auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .input-box input,
+form textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--bg-color-02);
+    border-radius: 0.5rem;
+    margin: 0.4rem 0;
+}
+
+form textarea {
+    resize: none;
+}
+
+/* footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    background-color: var(--bg-color-01);
+}
+
+
+/* todos os botoes*/
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.8rem;
+    background-color: var(--main-color);
+    border-radius: 2rem;
+    color: var(--bg-color-02);
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    transition: 0.3s ease;
+    margin-top: 1.2rem;
+}
+
+/* quando hover nos botoes*/
+.btn:hover {
+    box-shadow: 0 0 0.3rem var(--main-color);
+    background-color: inherit;
+    color: var(--main-color);
+    cursor: pointer;
 }
 
 
 
+/* -----media queries----- */
+/* mudancas de acordo com o tamanho da tela */
 
+/* celular (portrait) XS */
+@media (min-width: 0px) {
+    .menu-hamburguer {
+        display: block;
+    }
 
+    .nav {
+        display: none;
+    }
 
+    /* barra responsiva */
+    .nav-responsive a {
+        display: block;
+        font-size: 1.2rem;
+        margin: 0.5rem;
+    }
 
+    section {
+        padding: 6rem 2.5rem;
+    }
 
+    /* p a imagem ficar abaixo do texto */
+    .inicio, .sobre {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
 
+    .inicio-img, .sobre-img {
+        width: 90%;
+        max-width: 90%;
+    }
 
+    .inicio-content, .sobre-content {
+        width: 100%;
+    }
 
+    .inicio-content div {
+        text-align: center;
+    }
 
+    .inicio-content h1, .sobre-content h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        line-height: 1.3;
+    }
 
+    /* habilidades */
+    .habilidades-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .habilidades-box {
+        width: 100%;
+    }
+
+    header {
+        background-color: var(--color-01); /*test */
+    }
+}
+
+/* celular (landscape) XS */
+@media (min-width: 576px) {
+    .inicio-img, .sobre-img {
+        width: 90%;
+        max-width: 90%;
+    }
+
+    .habilidades-box {
+        width: 100%;
+    }
+
+    header {
+        background-color: var(--bg-color-02); /*test*/
+    }
+
+}
+
+/* tablet M */
+@media (min-width: 768px) {
+    .menu-hamburguer {
+        display: none;
+    }
+
+    .nav {
+        display: block;
+    }
+
+    .nav-responsive, .nav-responsive a {
+        display: none;
+    }
+
+    .inicio, .sobre {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .inicio-img, .sobre-img {
+        max-width: 85%;
+    }
+
+    .inicio-content, .sobre-content {
+        width: 85%;
+    }
+
+    .habilidades-box {
+        width: 60%;
+        margin-bottom: 2rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: auto auto;
+    }
+
+    form .input-box input {
+        width: 49%;
+    }
+
+    header {
+        background-color: var(--color-03); /*test*/
+    }
+}
+
+/* notebook L */
+@media (min-width: 992px) {
+
+    header {
+        background-color: var(--color-02); /*test*/
+    }
+}
+
+/* desktop XL */
+@media (min-width: 1200px) {
+.inicio-img, .sobre-img {
+    max-width: 85%;
+}
+
+.inicio-content h1 {
+    font-size: 2.7rem;
+}
+
+.inicio-content h3 {
+    font-size: 2rem;
+}
+
+.portfolio-container {
+    grid-template-columns: 4 4 4 4;
+}
+
+    header {
+        background-color: var(--color-01); /*test*/
+    }
+}
 
 
 
